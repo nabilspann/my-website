@@ -20,3 +20,13 @@
 .App-link {
   color: #61dafb;
 }
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+.welcome-statement {
+  margin-left: 70px;
+  margin-right: 70px;
+}

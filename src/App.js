@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+// import "./App.css";
 import Game from "./chess/Game";
 
 class App extends Component {
@@ -21,10 +21,13 @@ class App extends Component {
           </a>
         </header> */}
         <div>
-          Welcome to my website. I'm Nabil Spann, a developer using ReactJS to
-          build websites.
+          <p className="welcome-statement">
+            Welcome to my website. I'm Nabil Spann, a developer using ReactJS to
+            build websites. Currently I am making playable chess puzzles on my
+            website. Please check them out!
+          </p>
         </div>
-        <Game />
+        {/* <Game /> */}
       </div>
     );
   }

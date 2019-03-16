@@ -8,6 +8,8 @@ export default class King extends Piece {
         ? "https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg"
         : "https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg"
     );
+    this.whitekingmoved = false;
+    this.blackkingmoved = false;
   }
 
   isMovePossible(src, dest) {
@@ -28,6 +30,12 @@ export default class King extends Piece {
    * @return {[]}
    */
   getSrcToDestPath(src, dest) {
+    console.log(this.player);
+    if (!(dest === 62 || dest === 58) && this.player === 1) {
+      this.whitekingmoved = true;
+    } else if (!(dest === 6 || dest === 2) && this.player === 2) {
+      this.blackkingmoved = true;
+    }
     return [];
   }
 }

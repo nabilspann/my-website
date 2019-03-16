@@ -188,17 +188,99 @@ export default class Game extends React.Component {
         const isMoveLegal = this.isMoveLegal(srcToDestPath);
 
         console.log(squares[this.state.sourceSelection]);
+        //First four conditions here are for castling
         if (
           squares[this.state.sourceSelection].style.backgroundImage ===
             "url('https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg')" &&
-          i == 62
+          i == 62 &&
+          (squares[61] ? true : false) === false &&
+          this.state.player === 1 &&
+          squares[63].state.whiteRightmoved === false &&
+          squares[this.state.sourceSelection].whitekingmoved === false
         ) {
-          console.log("this is a king");
+          console.log("Move possible: " + this.isMoveLegal(srcToDestPath));
           console.log(i);
+          console.log(squares[61] ? true : false);
           squares[i] = squares[this.state.sourceSelection];
           squares[this.state.sourceSelection] = null;
           squares[61] = squares[63];
+          squares[61].state.whiteRightmoved = true;
+          squares[i].whitekingmoved = true;
           squares[63] = null;
+          let player = this.state.player === 1 ? 2 : 1;
+          let turn = this.state.turn === "white" ? "black" : "white";
+          this.setState({
+            sourceSelection: -1,
+            squares: squares,
+            player: player,
+            status: "",
+            turn: turn
+          });
+        } else if (
+          squares[this.state.sourceSelection].style.backgroundImage ===
+            "url('https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg')" &&
+          i == 58 &&
+          (squares[59] ? true : false) === false &&
+          this.state.player === 1 &&
+          (squares[57] ? true : false) === false &&
+          squares[56].state.whiteLeftmoved === false &&
+          squares[this.state.sourceSelection].whitekingmoved === false
+        ) {
+          squares[i] = squares[this.state.sourceSelection];
+          squares[this.state.sourceSelection] = null;
+          squares[59] = squares[56];
+          squares[59].state.whiteLeftmoved = true;
+          squares[i].whitekingmoved = true;
+          squares[56] = null;
+          let player = this.state.player === 1 ? 2 : 1;
+          let turn = this.state.turn === "white" ? "black" : "white";
+          this.setState({
+            sourceSelection: -1,
+            squares: squares,
+            player: player,
+            status: "",
+            turn: turn
+          });
+        } else if (
+          squares[this.state.sourceSelection].style.backgroundImage ===
+            "url('https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg')" &&
+          i == 6 &&
+          (squares[5] ? true : false) === false &&
+          this.state.player === 2 &&
+          squares[7].state.blackRightmoved === false &&
+          squares[this.state.sourceSelection].blackkingmoved === false
+        ) {
+          squares[i] = squares[this.state.sourceSelection];
+          squares[this.state.sourceSelection] = null;
+          squares[5] = squares[7];
+          squares[5].state.blackRightmoved = true;
+          squares[i].blackkingmoved = true;
+          squares[7] = null;
+          let player = this.state.player === 1 ? 2 : 1;
+          let turn = this.state.turn === "white" ? "black" : "white";
+          this.setState({
+            sourceSelection: -1,
+            squares: squares,
+            player: player,
+            status: "",
+            turn: turn
+          });
+        } else if (
+          squares[this.state.sourceSelection].style.backgroundImage ===
+            "url('https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg')" &&
+          i == 2 &&
+          (squares[1] ? true : false) === false &&
+          (squares[2] ? true : false) === false &&
+          this.state.player === 2 &&
+          squares[0].state.blackRightmoved === false &&
+          squares[this.state.sourceSelection].blackkingmoved === false
+        ) {
+          squares[i] = squares[this.state.sourceSelection];
+          squares[this.state.sourceSelection] = null;
+          squares[3] = squares[0];
+          squares[3].state.blackRightmoved = true;
+          squares[i].blackkingmoved = true;
+          squares[0] = null;
           let player = this.state.player === 1 ? 2 : 1;
           let turn = this.state.turn === "white" ? "black" : "white";
           this.setState({

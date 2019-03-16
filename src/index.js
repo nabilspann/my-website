@@ -1,16 +1,27 @@
+import "./styles/NavBar.css";
+import "./index.css";
+import "./styles/App.css";
+
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
 import App from "./App";
+import Grid from "@material-ui/core/Grid";
 import * as serviceWorker from "./serviceWorker";
-import { BrowserRouter as Router, Route, Link, Grid } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
+import Game from "./chess/Game";
+
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChess } from "@fortawesome/free-solid-svg-icons";
+library.add(faChess);
 
 ReactDOM.render(
   <Router>
     <div>
       <NavBar />
       <Route exact path="/" component={App} />
+      <Route exact path="/chesspuzzle" component={Game} />
     </div>
   </Router>,
   document.getElementById("root")

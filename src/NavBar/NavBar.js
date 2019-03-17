@@ -46,7 +46,7 @@ class NavBar extends React.Component {
                   style={{ fontSize: "27px", marginRight: "5px" }}
                   icon="chess"
                 />
-                <div className="menutext">Chess Puzzles</div>
+                <div className="menutext">Chess Board</div>
               </Toolbar>
             </NavLink>
           </Grid>

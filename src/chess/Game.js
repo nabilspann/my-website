@@ -5,6 +5,7 @@ import "../Game.css";
 import Board from "./Board.js";
 import CapturedPieces from "./CapturedPieces.js";
 import initialiseChessBoard from "./Utilities/initialiseChessBoard.js";
+import chessbackground from "../chessbackground.jpg";
 
 export default class Game extends React.Component {
   constructor() {
@@ -342,6 +343,7 @@ export default class Game extends React.Component {
   render() {
     return (
       <div className="margin-game">
+        <img src={chessbackground} alt="background-image" class="app-image" />
         <div className="game">
           <div className="game-board">
             <Board

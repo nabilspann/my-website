@@ -2,13 +2,13 @@ import React, { Component } from "react";
 // import "./App.css";
 import Game from "./chess/Game";
 import { Helmet } from "react-helmet";
-import image from "./astronomy-image.jpg";
+import mainbackground from "./mountain-clouds2.jpg";
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <img src={image} alt="background-image" class="app-image" />
+        <img src={mainbackground} alt="background-image" class="app-image" />
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>

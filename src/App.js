@@ -8,16 +8,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Helmet>
-          <title>Nabil's Web</title>
-          {/* <style type="text/css">{`
-        body {
-            background-color: black;
-        }
-
-        
-    `}</style> */}
-        </Helmet>
         <img src={image} alt="background-image" class="app-image" />
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />

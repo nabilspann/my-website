@@ -2,6 +2,7 @@ import React, { Component } from "react";
 // import "./App.css";
 import Game from "./chess/Game";
 import { Helmet } from "react-helmet";
+import image from "./astronomy-image.jpg";
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
         
     `}</style> */}
         </Helmet>
+        <img src={image} alt="background-image" class="app-image" />
         {/* <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -38,7 +40,6 @@ class App extends Component {
             back to challenge them soon!
           </p>
         </div>
-        {/* <Game /> */}
       </div>
     );
   }

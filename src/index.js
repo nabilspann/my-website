@@ -21,7 +21,7 @@ ReactDOM.render(
     <div>
       <NavBar />
       <Route exact path="/" component={App} />
-      <Route exact path="/chesspuzzle" component={Game} />
+      <Route path="/chesspuzzle" component={Game} />
     </div>
   </Router>,
   document.getElementById("root")

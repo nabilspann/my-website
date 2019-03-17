@@ -27,6 +27,7 @@ a {
 }
 
 .welcome-statement {
-  margin-left: 70px;
-  margin-right: 70px;
+  margin-left: 250px;
+  margin-right: 250px;
+  background-color: white;
 }

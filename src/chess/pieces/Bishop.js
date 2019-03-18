@@ -43,6 +43,7 @@ export default class Bishop extends Piece {
     for (let i = pathStart; i < pathEnd; i += incrementBy) {
       path.push(i);
     }
+    console.log(path);
     return path;
   }
 }

@@ -26,9 +26,9 @@ class App extends Component {
         <div className="welcome-statement">
           <p>
             Welcome to my website. I'm Nabil Spann, a developer using ReactJS to
-            build websites. Playable chess puzzles are under development. Come
-            back to challenge them soon!
+            build websites. Playable chess puzzles are under development.
           </p>
+          <p>Come back to challenge them soon!</p>
         </div>
       </div>
     );

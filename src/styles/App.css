@@ -1,6 +1,9 @@
 .App {
   text-align: center;
   height: 100%;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 30px;
+  /* color: white; */
 }
 
 .App-logo {
@@ -30,7 +33,7 @@ a {
 .welcome-statement {
   margin-left: 250px;
   margin-right: 250px;
-  background-color: white;
+  /* background-color: white; */
 }
 
 img.app-image {

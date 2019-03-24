@@ -4,7 +4,6 @@ import Game from "./chess/Game";
 import { Helmet } from "react-helmet";
 import mainbackground from "./mountain-clouds2.jpg";
 import githublogo from "./Octocat.png";
-
 class App extends Component {
   render() {
     return (
@@ -30,17 +29,6 @@ class App extends Component {
             build websites. Playable chess puzzles are under development.
           </p>
           <p>Come back to challenge them soon!</p>
-          <p>nabilspann@gmail.com</p>
-          <p>
-            The code for this website is on GitHub.{" "}
-            <a href="https://github.com/nabilspann/my-website">
-              <img
-                src={githublogo}
-                alt="Logo"
-                style={{ width: "50px", height: "50px" }}
-              />
-            </a>
-          </p>
         </div>
       </div>
     );

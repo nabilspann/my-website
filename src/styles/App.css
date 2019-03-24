@@ -3,6 +3,8 @@
   height: 100%;
   font-family: "Source Sans Pro", sans-serif;
   font-size: 30px;
+  margin-bottom: 14%;
+  margin-top: 26%;
   /* color: white; */
 }
 
@@ -33,6 +35,8 @@ a {
 .welcome-statement {
   margin-left: 250px;
   margin-right: 250px;
+  margin-bottom: 10%;
+  margin-top: -11%;
   /* background-color: white; */
 }
 

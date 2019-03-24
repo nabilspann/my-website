@@ -9,6 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
+import Footer from "./Footer/Footer";
 import Game from "./chess/Game";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -22,6 +23,7 @@ ReactDOM.render(
       <NavBar />
       <Route exact path="/" component={App} />
       <Route path="/chesspuzzle" component={Game} />
+      <Footer />
     </div>
   </Router>,
   document.getElementById("root")

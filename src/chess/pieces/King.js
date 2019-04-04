@@ -10,6 +10,7 @@ export default class King extends Piece {
     );
     this.whitekingmoved = false;
     this.blackkingmoved = false;
+    this.piece = "King";
   }
 
   isMovePossible(src, dest) {

@@ -131,7 +131,8 @@ export default class Game extends React.Component {
   handleClick(i) {
     const squares = this.state.squares.slice();
     console.log(squares[i]);
-    console.log(this.state.sourceSelection);
+    console.log("i: ", i);
+    console.log("sourceSelection: ", this.state.sourceSelection);
     if (this.state.sourceSelection === -1) {
       if (!squares[i] || squares[i].player !== this.state.player) {
         this.setState({
@@ -186,13 +187,13 @@ export default class Game extends React.Component {
         const srcToDestPath = squares[
           this.state.sourceSelection
         ].getSrcToDestPath(this.state.sourceSelection, i);
+        console.log("srcTodestPath: " + srcToDestPath);
         const isMoveLegal = this.isMoveLegal(srcToDestPath);
 
         console.log(squares[this.state.sourceSelection]);
         //First four conditions here are for castling
         if (
-          squares[this.state.sourceSelection].style.backgroundImage ===
-            "url('https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg')" &&
+          squares[this.state.sourceSelection].piece === "King" &&
           i == 62 &&
           (squares[61] ? true : false) === false &&
           this.state.player === 1 &&
@@ -218,8 +219,7 @@ export default class Game extends React.Component {
             turn: turn
           });
         } else if (
-          squares[this.state.sourceSelection].style.backgroundImage ===
-            "url('https://upload.wikimedia.org/wikipedia/commons/4/42/Chess_klt45.svg')" &&
+          squares[this.state.sourceSelection].piece === "King" &&
           i == 58 &&
           (squares[59] ? true : false) === false &&
           this.state.player === 1 &&
@@ -243,8 +243,7 @@ export default class Game extends React.Component {
             turn: turn
           });
         } else if (
-          squares[this.state.sourceSelection].style.backgroundImage ===
-            "url('https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg')" &&
+          squares[this.state.sourceSelection].piece === "King" &&
           i == 6 &&
           (squares[5] ? true : false) === false &&
           this.state.player === 2 &&
@@ -267,8 +266,7 @@ export default class Game extends React.Component {
             turn: turn
           });
         } else if (
-          squares[this.state.sourceSelection].style.backgroundImage ===
-            "url('https://upload.wikimedia.org/wikipedia/commons/f/f0/Chess_kdt45.svg')" &&
+          squares[this.state.sourceSelection].piece === "King" &&
           i == 2 &&
           (squares[1] ? true : false) === false &&
           (squares[2] ? true : false) === false &&
@@ -299,6 +297,35 @@ export default class Game extends React.Component {
               blackCapturedPieces.push(squares[i]);
             }
           }
+          // if (squares[this.state.sourceSelection].piece === "King") {
+          //   console.log("Its a KING!");
+          //   if (squares[this.state.sourceSelection].player === 1) {
+          //     for (var j = 0; j < 64; j++) {
+          //       if (
+          //         squares[j] !== null &&
+          //         squares[j].player === 2 &&
+          //         this.state.sourceSelection !== j
+          //       ) {
+          //         // console.log("whiteplayer: ", j);
+          //         let islegalDestEnemyOccupied = squares[i] ? true : false;
+          //         if (squares[j].piece === "Pawn") {
+          //           islegalDestEnemyOccupied = true;
+          //         }
+
+          //         let islegalMovePossible = squares[j].isMovePossible(
+          //           j,
+          //           i,
+          //           islegalDestEnemyOccupied
+          //         );
+          //         if (islegalMovePossible === true) {
+          //           let legalsrcToDest = squares[j].getSrcToDestPath(j, i);
+          //           let isKingMoveLegal = this.isMoveLegal(legalsrcToDest);
+          //           console.log("move possible: ", j, isKingMoveLegal);
+          //         }
+          //       }
+          //     }
+          //   }
+          // }
           // console.log("whiteCapturedPieces", whiteCapturedPieces);
           // console.log("blackCapturedPieces", blackCapturedPieces);
           squares[i] = squares[this.state.sourceSelection];

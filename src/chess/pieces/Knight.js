@@ -8,9 +8,55 @@ export default class Knight extends Piece {
         ? "https://upload.wikimedia.org/wikipedia/commons/7/70/Chess_nlt45.svg"
         : "https://upload.wikimedia.org/wikipedia/commons/e/ef/Chess_ndt45.svg"
     );
+    this.leftedgelist = [0, 8, 16, 24, 32, 40, 48, 56];
+    this.secondleftedgelist = [1, 9, 17, 25, 33, 41, 49, 57];
+    this.rightedgelist = [7, 15, 23, 31, 39, 47, 55, 63];
+    this.secondrightedgelist = [6, 14, 22, 30, 38, 46, 54, 62];
   }
 
   isMovePossible(src, dest) {
+    if (this.leftedgelist.indexOf(src) !== -1) {
+      return (
+        src - 17 === dest ||
+        src - 10 === dest ||
+        src - 15 === dest ||
+        src - 6 === dest ||
+        src + 10 === dest ||
+        src + 17 === dest
+      );
+    }
+    if (this.secondleftedgelist.indexOf(src) !== -1) {
+      return (
+        src - 17 === dest ||
+        src - 10 === dest ||
+        src - 15 === dest ||
+        src + 15 === dest ||
+        src - 6 === dest ||
+        src + 10 === dest ||
+        src + 17 === dest
+      );
+    }
+    if (this.rightedgelist.indexOf(src) !== -1) {
+      return (
+        src - 17 === dest ||
+        src - 10 === dest ||
+        src + 15 === dest ||
+        src + 6 === dest ||
+        src + 10 === dest ||
+        src + 17 === dest
+      );
+    }
+    if (this.secondrightedgelist.indexOf(src) !== -1) {
+      return (
+        src - 17 === dest ||
+        src - 10 === dest ||
+        src - 15 === dest ||
+        src + 15 === dest ||
+        src + 6 === dest ||
+        src + 10 === dest ||
+        src + 17 === dest
+      );
+    }
     return (
       src - 17 === dest ||
       src - 10 === dest ||

@@ -11,6 +11,44 @@ export default class Bishop extends Piece {
   }
 
   isMovePossible(src, dest) {
+    //Ban When src - dest =
+    //42,
+    let leftedgelist = [0, 8, 16, 24, 32, 40, 48, 56];
+    let rightedgelist = [7, 15, 23, 31, 39, 47, 55, 63];
+    console.log("src:", src);
+    console.log("dest: ", dest);
+    if (Math.abs(src - dest) % 7 === 0) {
+      if (src < dest) {
+        for (var i = src; i < dest; i = i + 7) {
+          if (leftedgelist.indexOf(i) !== -1 && dest > i) {
+            return false;
+          }
+        }
+      }
+      if (src > dest) {
+        for (var i = src; i > dest; i = i - 7) {
+          if (rightedgelist.indexOf(i) !== -1 && dest < i) {
+            return false;
+          }
+        }
+      }
+    }
+    if (Math.abs(src - dest) % 9 === 0) {
+      if (src < dest) {
+        for (var i = src; i < dest; i = i + 9) {
+          if (rightedgelist.indexOf(i) !== -1 && dest > i) {
+            return false;
+          }
+        }
+      }
+      if (src > dest) {
+        for (var i = src; i > dest; i = i - 9) {
+          if (leftedgelist.indexOf(i) !== -1 && dest < i) {
+            return false;
+          }
+        }
+      }
+    }
     return Math.abs(src - dest) % 9 === 0 || Math.abs(src - dest) % 7 === 0;
   }
 
@@ -43,7 +81,6 @@ export default class Bishop extends Piece {
     for (let i = pathStart; i < pathEnd; i += incrementBy) {
       path.push(i);
     }
-    console.log(path);
     return path;
   }
 }

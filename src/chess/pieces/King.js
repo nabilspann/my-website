@@ -31,7 +31,6 @@ export default class King extends Piece {
    * @return {[]}
    */
   getSrcToDestPath(src, dest) {
-    console.log(this.player);
     if (!(dest === 62 || dest === 58) && this.player === 1) {
       this.whitekingmoved = true;
     } else if (!(dest === 6 || dest === 2) && this.player === 2) {

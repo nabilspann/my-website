@@ -15,8 +15,6 @@ export default class Bishop extends Piece {
     //42,
     let leftedgelist = [0, 8, 16, 24, 32, 40, 48, 56];
     let rightedgelist = [7, 15, 23, 31, 39, 47, 55, 63];
-    console.log("src:", src);
-    console.log("dest: ", dest);
     if (Math.abs(src - dest) % 7 === 0) {
       if (src < dest) {
         for (var i = src; i < dest; i = i + 7) {

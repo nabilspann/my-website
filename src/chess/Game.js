@@ -6,6 +6,8 @@ import Board from "./Board.js";
 import CapturedPieces from "./CapturedPieces.js";
 import initialiseChessBoard from "./Utilities/initialiseChessBoard.js";
 import chessbackground from "../chessbackground.jpg";
+import Kingmovelegal from "./Utilities/Kingmovelegal.js";
+import Castlemovelegal from "./Utilities/Castlemovelegal.js";
 
 export default class Game extends React.Component {
   constructor() {
@@ -204,20 +206,34 @@ export default class Game extends React.Component {
         ) {
           squares[i] = squares[this.state.sourceSelection];
           squares[this.state.sourceSelection] = null;
-          squares[61] = squares[63];
-          squares[61].state.whiteRightmoved = true;
-          squares[i].whitekingmoved = true;
-          squares[63] = null;
-          ply1kinglocation = i;
-          let player = this.state.player === 1 ? 2 : 1;
-          let turn = this.state.turn === "white" ? "black" : "white";
-          this.setState({
-            sourceSelection: -1,
-            squares: squares,
-            player: player,
-            status: "",
-            turn: turn
-          });
+          let isCastleLegal = Castlemovelegal(
+            squares,
+            this.state.player,
+            this.state.sourceSelection,
+            i
+          );
+          if (!isCastleLegal) {
+            this.setState({
+              status:
+                "Illegal move, cannot castle if the king is in check or moving through check.",
+              sourceSelection: -1
+            });
+          } else {
+            squares[61] = squares[63];
+            squares[61].state.whiteRightmoved = true;
+            squares[i].whitekingmoved = true;
+            squares[63] = null;
+            ply1kinglocation = i;
+            let player = this.state.player === 1 ? 2 : 1;
+            let turn = this.state.turn === "white" ? "black" : "white";
+            this.setState({
+              sourceSelection: -1,
+              squares: squares,
+              player: player,
+              status: "",
+              turn: turn
+            });
+          }
         } else if (
           squares[this.state.sourceSelection].piece === "King" &&
           i == 58 &&
@@ -229,20 +245,34 @@ export default class Game extends React.Component {
         ) {
           squares[i] = squares[this.state.sourceSelection];
           squares[this.state.sourceSelection] = null;
-          squares[59] = squares[56];
-          squares[59].state.whiteLeftmoved = true;
-          squares[i].whitekingmoved = true;
-          squares[56] = null;
-          ply1kinglocation = i;
-          let player = this.state.player === 1 ? 2 : 1;
-          let turn = this.state.turn === "white" ? "black" : "white";
-          this.setState({
-            sourceSelection: -1,
-            squares: squares,
-            player: player,
-            status: "",
-            turn: turn
-          });
+          let isCastleLegal = Castlemovelegal(
+            squares,
+            this.state.player,
+            this.state.sourceSelection,
+            i
+          );
+          if (!isCastleLegal) {
+            this.setState({
+              status:
+                "Illegal move, cannot castle if the king is in check or moving through check.",
+              sourceSelection: -1
+            });
+          } else {
+            squares[59] = squares[56];
+            squares[59].state.whiteLeftmoved = true;
+            squares[i].whitekingmoved = true;
+            squares[56] = null;
+            ply1kinglocation = i;
+            let player = this.state.player === 1 ? 2 : 1;
+            let turn = this.state.turn === "white" ? "black" : "white";
+            this.setState({
+              sourceSelection: -1,
+              squares: squares,
+              player: player,
+              status: "",
+              turn: turn
+            });
+          }
         } else if (
           squares[this.state.sourceSelection].piece === "King" &&
           i == 6 &&
@@ -253,20 +283,34 @@ export default class Game extends React.Component {
         ) {
           squares[i] = squares[this.state.sourceSelection];
           squares[this.state.sourceSelection] = null;
-          squares[5] = squares[7];
-          squares[5].state.blackRightmoved = true;
-          squares[i].blackkingmoved = true;
-          squares[7] = null;
-          ply2kinglocation = i;
-          let player = this.state.player === 1 ? 2 : 1;
-          let turn = this.state.turn === "white" ? "black" : "white";
-          this.setState({
-            sourceSelection: -1,
-            squares: squares,
-            player: player,
-            status: "",
-            turn: turn
-          });
+          let isCastleLegal = Castlemovelegal(
+            squares,
+            this.state.player,
+            this.state.sourceSelection,
+            i
+          );
+          if (!isCastleLegal) {
+            this.setState({
+              status:
+                "Illegal move, cannot castle if the king is in check or moving through check.",
+              sourceSelection: -1
+            });
+          } else {
+            squares[5] = squares[7];
+            squares[5].state.blackRightmoved = true;
+            squares[i].blackkingmoved = true;
+            squares[7] = null;
+            ply2kinglocation = i;
+            let player = this.state.player === 1 ? 2 : 1;
+            let turn = this.state.turn === "white" ? "black" : "white";
+            this.setState({
+              sourceSelection: -1,
+              squares: squares,
+              player: player,
+              status: "",
+              turn: turn
+            });
+          }
         } else if (
           squares[this.state.sourceSelection].piece === "King" &&
           i == 2 &&
@@ -278,20 +322,34 @@ export default class Game extends React.Component {
         ) {
           squares[i] = squares[this.state.sourceSelection];
           squares[this.state.sourceSelection] = null;
-          squares[3] = squares[0];
-          squares[3].state.blackRightmoved = true;
-          squares[i].blackkingmoved = true;
-          squares[0] = null;
-          ply2kinglocation = i;
-          let player = this.state.player === 1 ? 2 : 1;
-          let turn = this.state.turn === "white" ? "black" : "white";
-          this.setState({
-            sourceSelection: -1,
-            squares: squares,
-            player: player,
-            status: "",
-            turn: turn
-          });
+          let isCastleLegal = Castlemovelegal(
+            squares,
+            this.state.player,
+            this.state.sourceSelection,
+            i
+          );
+          if (!isCastleLegal) {
+            this.setState({
+              status:
+                "Illegal move, cannot castle if the king is in check or moving through check.",
+              sourceSelection: -1
+            });
+          } else {
+            squares[3] = squares[0];
+            squares[3].state.blackRightmoved = true;
+            squares[i].blackkingmoved = true;
+            squares[0] = null;
+            ply2kinglocation = i;
+            let player = this.state.player === 1 ? 2 : 1;
+            let turn = this.state.turn === "white" ? "black" : "white";
+            this.setState({
+              sourceSelection: -1,
+              squares: squares,
+              player: player,
+              status: "",
+              turn: turn
+            });
+          }
         } else if (isMovePossible && isMoveLegal) {
           console.log(ply1kinglocation);
           console.log(ply2kinglocation);
@@ -307,76 +365,26 @@ export default class Game extends React.Component {
 
             squares[i] = squares[this.state.sourceSelection];
             squares[this.state.sourceSelection] = null;
-            for (var j = 0; j < 64; j++) {
-              if (
-                squares[j] !== null &&
-                squares[j].player === 2 &&
-                this.state.sourceSelection !== j &&
-                squares[i].player === 1
-              ) {
-                // console.log("whiteplayer: ", j);
-                let islegalDestEnemyOccupied = squares[i] ? true : false;
-                if (squares[j].piece === "Pawn") {
-                  islegalDestEnemyOccupied = true;
-                }
-                console.log("king's destination: ,", i);
-                let islegalMovePossible = squares[j].isMovePossible(
-                  j,
-                  i,
-                  islegalDestEnemyOccupied
-                );
-                if (islegalMovePossible === true) {
-                  let legalsrcToDest = squares[j].getSrcToDestPath(j, i);
-                  let isSquareOccupied = this.isMoveLegal(
-                    legalsrcToDest,
-                    squares
-                  );
-                  console.log("move possible: ", j, isSquareOccupied);
-                  if (isSquareOccupied === true) {
-                    isKingMoveLegal = false;
-                    this.setState({
-                      status: "Illegal move, exposing the king to check.",
-                      sourceSelection: -1
-                    });
-                  }
-                }
-                ply1kinglocation = i;
-              } else if (
-                squares[j] !== null &&
-                squares[j].player === 1 &&
-                this.state.sourceSelection !== j &&
-                squares[i].player === 2
-              ) {
-                // console.log("whiteplayer: ", j);
-                let islegalDestEnemyOccupied = squares[i] ? true : false;
-                if (squares[j].piece === "Pawn") {
-                  islegalDestEnemyOccupied = true;
-                }
+            isKingMoveLegal = Kingmovelegal(
+              squares,
+              this.state.player,
+              this.state.sourceSelection,
+              i
+            );
+            // console.log("Kingmovelegal:", testlegal);
+            if (isKingMoveLegal === false) {
+              this.setState({
+                status: "Illegal move, exposing the king to check.",
+                sourceSelection: -1
+              });
+            }
 
-                let islegalMovePossible = squares[j].isMovePossible(
-                  j,
-                  i,
-                  islegalDestEnemyOccupied
-                );
-                if (islegalMovePossible === true) {
-                  let legalsrcToDest = squares[j].getSrcToDestPath(j, i);
-                  let isSquareOccupied = this.isMoveLegal(
-                    legalsrcToDest,
-                    squares
-                  );
-                  console.log("move possible: ", j, isSquareOccupied);
-                  if (isSquareOccupied === true) {
-                    isKingMoveLegal = false;
-                    this.setState({
-                      status: "Illegal move, exposing the king to check.",
-                      sourceSelection: -1
-                    });
-                  }
-                }
+            if (isKingMoveLegal === true) {
+              if (this.state.player === 1) {
+                ply1kinglocation = i;
+              } else if (this.state.player === 2) {
                 ply2kinglocation = i;
               }
-            }
-            if (isKingMoveLegal === true) {
               let player = this.state.player === 1 ? 2 : 1;
               let turn = this.state.turn === "white" ? "black" : "white";
               this.setState({
